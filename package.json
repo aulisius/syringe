@@ -1,0 +1,29 @@
+{
+  "name": "@faizaanceg/syringe",
+  "version": "0.0.1",
+  "description": "A tiny dependency injection solution",
+  "module": "src/index.mjs",
+  "engines": {
+    "node": ">=17"
+  },
+  "types": "index.d.ts",
+  "scripts": {
+    "prepublishOnly": "node test.mjs",
+    "test": "node test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aulisius/syringe.git"
+  },
+  "keywords": [
+    "dependency injection",
+    "beans",
+    "ioc"
+  ],
+  "author": "Md Faizaan <aulisius7@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aulisius/syringe/issues"
+  },
+  "homepage": "https://github.com/aulisius/syringe#readme"
+}
