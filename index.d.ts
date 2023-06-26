@@ -8,9 +8,11 @@ interface Injection<T> {
   injectFn(): T;
 }
 
-export interface SyringeSolution {
+interface SyringeSolution {
   fill(injections: Injection<T>[]): void;
   inject<T>(name: string): T;
 }
+
+export function createSyringe(): SyringeSolution;
 
 export const Syringe: SyringeSolution;

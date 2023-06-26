@@ -31,7 +31,7 @@ class Graph {
   }
 }
 
-export class SyringeSolution {
+class SyringeSolution {
   __registry = null;
   constructor() {
     this.__registry = new Graph("start");
@@ -57,4 +57,8 @@ export class SyringeSolution {
   }
 }
 
-export const Syringe = new SyringeSolution();
+export function createSyringe() {
+  return new SyringeSolution();
+}
+
+export const Syringe = createSyringe();

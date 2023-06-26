@@ -1,11 +1,11 @@
 import assert from "node:assert";
 import { beforeEach, describe, it } from "node:test";
-import { SyringeSolution } from "./src/index.mjs";
+import { createSyringe } from "./src/index.mjs";
 
 var Syringe;
 describe("`syringe` tests", () => {
   beforeEach(() => {
-    Syringe = new SyringeSolution();
+    Syringe = createSyringe();
   });
 
   it("`inject` returns the correct value", () => {
