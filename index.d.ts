@@ -1,18 +1,19 @@
-interface InjectionRef {
-  name: string;
+export interface DefaultInjections {}
+
+interface InjectionRef<Ref> {
+  name: Ref;
 }
 
-interface Injection<T> {
-  name: string;
-  uses: InjectionRefs[];
-  injectFn(): T;
+interface Injection<Injections = DefaultInjections, Ref = keyof Injections> {
+  name: Ref;
+  uses: InjectionRef<Ref>[];
+  injectFn(deps: Injections): Injections[Ref];
+}
+interface SyringeSolution<Injections> {
+  fill(injections: Injection<Injections>[]): void;
+  inject<K extends keyof Injections>(name: K): Injections[K];
 }
 
-interface SyringeSolution {
-  fill(injections: Injection<T>[]): void;
-  inject<T>(name: string): T;
-}
+export function createSyringe<Injections>(): SyringeSolution<Injections>;
 
-export function createSyringe(): SyringeSolution;
-
-export const Syringe: SyringeSolution;
+export const Syringe: SyringeSolution<DefaultInjections>;
