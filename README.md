@@ -39,16 +39,6 @@ console.log(Syringe.inject("host")); // "https://example.com"
 #### Signature
 
 ```ts
-interface InjectionRef {
-  name: string;
-}
-
-interface Injection<T> {
-  name: string;
-  uses: InjectionRef[];
-  injectFn(): T;
-}
-
 fill(injections: Injections[]): void
 ```
 
@@ -59,5 +49,5 @@ fill(injections: Injections[]): void
 #### Signature
 
 ```ts
-inject<T>(name: string): T
+inject(name: string): T
 ```
