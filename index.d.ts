@@ -4,13 +4,13 @@ interface InjectionRef<Ref> {
   name: Ref;
 }
 
-interface Injection<Injections = DefaultInjections, Ref = keyof Injections> {
-  name: Ref;
-  uses: InjectionRef<Ref>[];
-  injectFn(deps: Injections): Injections[Ref];
+interface Injection<Name extends keyof Deps, Deps = DefaultInjections> {
+  name: Name;
+  uses: InjectionRef<Exclude<keyof Deps, Name>>[];
+  injectFn(deps: Pick<Deps, Exclude<keyof Deps, Name>>): Deps[Name];
 }
 interface SyringeSolution<Injections> {
-  fill(injections: Injection<Injections>[]): void;
+  fill(injections: Injection<any, Injections>[]): void;
   inject<K extends keyof Injections>(name: K): Injections[K];
 }
 
