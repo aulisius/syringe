@@ -1,6 +1,6 @@
+import { createSyringe } from "@faizaanceg/syringe";
 import assert from "node:assert";
 import { beforeEach, describe, it } from "node:test";
-import { createSyringe } from "./src/index.mjs";
 
 var Syringe;
 describe("`syringe` tests", () => {
